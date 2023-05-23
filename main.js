@@ -3,12 +3,12 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const app = express()
-
 app.use(cors())
 app.use(bodyParser.json())
 
 const Device = require("./models/devices")
 const mongoUrl = "mongodb+srv://andacozturk:12345@cluster0.lmu4pdb.mongodb.net/?retryWrites=true&w=majority"
+const port = 8080
 
 mongoose
     .connect(mongoUrl, {
@@ -21,7 +21,6 @@ mongoose
 app.post("/device", (req, res) => {
     let newDevice = new Device(req.body);
     newDevice.save()
-    console.log('Item Saved');
     res.status(200).json()
 })
 
@@ -55,4 +54,4 @@ app.delete('/delete', async (req, res) => {
     }
 })
 
-app.listen(8080)
+app.listen(port, () => { console.log(`Server listening  at  ${port}`) })
