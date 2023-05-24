@@ -5,12 +5,12 @@ This is a simple backend server application.
 After you cloned the repository, 
 use
 
-###npm i to install
+### npm i to install
 
 dependencies.
 
 use 
 
-###nodemon main.js
+### nodemon main.js
 
 to start server.
